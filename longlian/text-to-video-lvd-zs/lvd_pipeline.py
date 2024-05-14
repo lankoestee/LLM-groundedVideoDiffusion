@@ -114,6 +114,9 @@ class GroundedTextToVideoSDPipeline(DiffusionPipeline, TextualInversionLoaderMix
         scheduler: KarrasDiffusionSchedulers,
     ):
         super().__init__()
+        print("----------")
+        print("GroundedTextToVideoSDPipeline init")
+        print("----------")
 
         self.register_modules(
             vae=vae,
@@ -663,6 +666,9 @@ class GroundedTextToVideoSDPipeline(DiffusionPipeline, TextualInversionLoaderMix
                 If `return_dict` is `True`, [`~pipelines.text_to_video_synthesis.TextToVideoSDPipelineOutput`] is
                 returned, otherwise a `tuple` is returned where the first element is a list with the generated frames.
         """
+        print("----------")
+        print("GroundedTextToVideoSDPipeline call")
+        print("----------")
         # 0. Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
         width = width or self.unet.config.sample_size * self.vae_scale_factor
