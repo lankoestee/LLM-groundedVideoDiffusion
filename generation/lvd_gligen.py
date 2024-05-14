@@ -29,8 +29,11 @@ def init(base_model):
     else:
         raise ValueError(f"Unknown base model: {base_model}")
 
+    # pipe = TextToVideoSDPipeline.from_pretrained(
+    #     model_key, trust_remote_code=True, torch_dtype=torch.float16
+    # )
     pipe = TextToVideoSDPipeline.from_pretrained(
-        model_key, trust_remote_code=True, torch_dtype=torch.float16
+        model_key, trust_remote_code=False, torch_dtype=torch.float16
     )
     # The default one is DDIMScheduler
     pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
