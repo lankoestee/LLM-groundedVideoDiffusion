@@ -131,6 +131,8 @@ def run(
     image = Image.open("images/bear_mask.png")
     array = np.array(image)
     images = image_embed(array)  # -> [24, (320, 576, 3)]
+    # 转为int8
+    images = np.array(images, dtype=np.uint8)
     image_latents = torch.zeros((24, 1, 4, 40, 72))
     for i in range(24):
         image_latents[i] = encode(pipe, images[i], generator)
