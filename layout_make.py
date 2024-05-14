@@ -41,7 +41,7 @@ def image_embed(image, parsed_layout = None, H = 320, W = 576):
     # 创造24帧Image高斯噪声，大小为[320*576]
     ret_images = []
     for i in range(24):
-        background = np.random.randint(0, 255, (H, W, 3))
+        background = np.zeros((H, W, 3))
         shape = ((layouts[i][3] - layouts[i][1]) * H, 
                  (layouts[i][2] - layouts[i][0]) * W)
         start = (int(layouts[i][1] * H), int(layouts[i][0] * W))
