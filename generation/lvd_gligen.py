@@ -137,6 +137,7 @@ def run(
     for i in range(24):
         image_latents[i] = encode(pipe, images[i], generator)
     image_latents = image_latents.permute(1, 2, 0, 3, 4)
+    image_latents = image_latents * 0.5 + torch.randn_like(image_latents) * 0.5
     print("image_latents.shape = ", image_latents.shape)
 
 
