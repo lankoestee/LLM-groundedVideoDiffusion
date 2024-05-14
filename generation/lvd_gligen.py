@@ -2,6 +2,7 @@ from models.controllable_pipeline_text_to_video_synth import TextToVideoSDPipeli
 # from diffusers.pipelines.text_to_video_synthesis.pipeline_text_to_video_synth import TextToVideoSDPipeline
 from diffusers import DPMSolverMultistepScheduler
 from models.unet_3d_condition import UNet3DConditionModel
+from models.pipelines import encode
 from utils import parse, vis
 from prompt import negative_prompt
 import utils
@@ -70,9 +71,6 @@ def run(
     save_annotated_videos=False,
     save_formats=["gif", "joblib"],
 ):
-    print("----------")
-    print("Begin run LVD-GLIGEN")
-    print("----------")
     condition = parse.parsed_layout_to_condition(
         parsed_layout,
         tokenizer=pipe.tokenizer,
@@ -120,43 +118,46 @@ def run(
                 if bboxes_item[i] != [0.0, 0.0, 0.0, 0.0]
             ]
         )
-
+    
+    image = Image.open("../image/boy.png")
+    image_latents = encode(pipe, image, generator)
     print("----------")
-    print("Generating video")
+    print("image_latents.shape = ", image_latents.shape)
     print("----------")
-    video_frames = pipe(
-        prompt,
-        negative_prompt=negative_prompt,
-        num_inference_steps=num_inference_steps,
-        height=H,
-        width=W,
-        num_frames=num_frames,
-        cross_attention_kwargs=cross_attention_kwargs,
-        generator=generator,
-        lvd_gligen_scheduled_sampling_beta=gligen_scheduled_sampling_beta,
-        lvd_gligen_boxes=lvd_gligen_boxes,
-        lvd_gligen_phrases=lvd_gligen_phrases,
-    ).frames
-    # `diffusers` has a backward-breaking change
-    # video_frames = (video_frames[0] * 255.).astype(np.uint8)
 
-    # %%
+    # video_frames = pipe(
+    #     prompt,
+    #     negative_prompt=negative_prompt,
+    #     num_inference_steps=num_inference_steps,
+    #     height=H,
+    #     width=W,
+    #     num_frames=num_frames,
+    #     cross_attention_kwargs=cross_attention_kwargs,
+    #     generator=generator,
+    #     lvd_gligen_scheduled_sampling_beta=gligen_scheduled_sampling_beta,
+    #     lvd_gligen_boxes=lvd_gligen_boxes,
+    #     lvd_gligen_phrases=lvd_gligen_phrases,
+    # ).frames
+    # # `diffusers` has a backward-breaking change
+    # # video_frames = (video_frames[0] * 255.).astype(np.uint8)
 
-    if save_annotated_videos:
-        annotated_frames = [
-            np.array(
-                utils.draw_box(
-                    Image.fromarray(video_frame), [bbox[i] for bbox in bboxes], phrases
-                )
-            )
-            for i, video_frame in enumerate(video_frames)
-        ]
-        vis.save_frames(
-            f"{save_path}/video_seed{seed}_with_box",
-            frames=annotated_frames,
-            formats="gif",
-        )
+    # # %%
 
-    vis.save_frames(
-        f"{parse.img_dir}/video_{save_suffix}", video_frames, formats=save_formats
-    )
+    # if save_annotated_videos:
+    #     annotated_frames = [
+    #         np.array(
+    #             utils.draw_box(
+    #                 Image.fromarray(video_frame), [bbox[i] for bbox in bboxes], phrases
+    #             )
+    #         )
+    #         for i, video_frame in enumerate(video_frames)
+    #     ]
+    #     vis.save_frames(
+    #         f"{save_path}/video_seed{seed}_with_box",
+    #         frames=annotated_frames,
+    #         formats="gif",
+    #     )
+
+    # vis.save_frames(
+    #     f"{parse.img_dir}/video_{save_suffix}", video_frames, formats=save_formats
+    # )

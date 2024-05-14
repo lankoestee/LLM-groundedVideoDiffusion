@@ -734,9 +734,8 @@ class GroundedTextToVideoSDPipeline(DiffusionPipeline, TextualInversionLoaderMix
             generator,
             latents,
         )
-        print("---------")
-        print("lantents.shape", latents.shape)
-        print("---------")
+        # latents.shape = torch.Size([1, 4, 24, 40, 72])
+        # [B, C, T, H, W]
 
         # 5.1 Prepare GLIGEN variables
         if lvd_gligen_boxes:
