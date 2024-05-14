@@ -132,12 +132,21 @@ def run(
     # image_latents = image_latents * 0.5 + torch.randn_like(image_latents) * 0.5
     # print("image_latents.shape = ", image_latents.shape)
 
-    image = Image.open("images/bear_mask.png")
+    image = Image.open("images/boy_mask.png")
     array = np.array(image, dtype=np.uint8)
+    array = array.resize((512, 512, 4))
     image = png_image_process(array)
     image_latent = encode(pipe, image, generator)
     print("image_latent.shape = ", image_latent.shape)
-    torch.save(image_latent, f"tmp/bear.pt")
+    torch.save(image_latent, f"tmp/boy.pt")
+
+    image = Image.open("images/girl_mask.png")
+    array = np.array(image, dtype=np.uint8)
+    array = array.resize((512, 512, 4))
+    image = png_image_process(array)
+    image_latent = encode(pipe, image, generator)
+    print("image_latent.shape = ", image_latent.shape)
+    torch.save(image_latent, f"tmp/girl.pt")
 
     # video_frames = pipe(
     #     prompt,
