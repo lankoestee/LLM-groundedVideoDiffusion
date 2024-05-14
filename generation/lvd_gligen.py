@@ -4,7 +4,7 @@ from diffusers import DPMSolverMultistepScheduler
 from models.unet_3d_condition import UNet3DConditionModel
 from models.pipelines import encode
 from utils import parse, vis
-from layout_make import image_embed
+from layout_make import image_embed, png_image_process
 from prompt import negative_prompt
 import utils
 import numpy as np
@@ -119,62 +119,60 @@ def run(
                 if bboxes_item[i] != [0.0, 0.0, 0.0, 0.0]
             ]
         )
-    
-    # image = Image.open("images/boy.png")
-    # image = image.resize((256, 512))
-    # image = image.convert('RGB')
-    # image_latents = encode(pipe, image, generator)
-    # print("----------")
+
+    # image = Image.open("images/bear_mask.png")
+    # array = np.array(image)
+    # images = image_embed(array)  # -> [24, (320, 576, 3)]
+    # # 转为int8
+    # images = np.array(images, dtype=np.uint8)
+    # image_latents = torch.zeros((24, 1, 4, 40, 72), dtype=torch.float16)
+    # for i in range(24):
+    #     image_latents[i] = encode(pipe, images[i], generator)
+    # image_latents = image_latents.permute(1, 2, 0, 3, 4)
+    # image_latents = image_latents * 0.5 + torch.randn_like(image_latents) * 0.5
     # print("image_latents.shape = ", image_latents.shape)
-    # print("----------")
 
     image = Image.open("images/bear_mask.png")
-    array = np.array(image)
-    images = image_embed(array)  # -> [24, (320, 576, 3)]
-    # 转为int8
-    images = np.array(images, dtype=np.uint8)
-    image_latents = torch.zeros((24, 1, 4, 40, 72), dtype=torch.float16)
-    for i in range(24):
-        image_latents[i] = encode(pipe, images[i], generator)
-    image_latents = image_latents.permute(1, 2, 0, 3, 4)
-    image_latents = image_latents * 0.5 + torch.randn_like(image_latents) * 0.5
-    print("image_latents.shape = ", image_latents.shape)
+    array = np.array(image, dtype=np.uint8)
+    image = png_image_process(array)
+    image_latent = encode(pipe, image, generator)
+    print("image_latent.shape = ", image_latent.shape)
+    torch.load("tmp/bear_mask.pt", image_latent)
 
+    # video_frames = pipe(
+    #     prompt,
+    #     negative_prompt=negative_prompt,
+    #     num_inference_steps=num_inference_steps,
+    #     height=H,
+    #     width=W,
+    #     num_frames=num_frames,
+    #     cross_attention_kwargs=cross_attention_kwargs,
+    #     generator=generator,
+    #     lvd_gligen_scheduled_sampling_beta=gligen_scheduled_sampling_beta,
+    #     lvd_gligen_boxes=lvd_gligen_boxes,
+    #     lvd_gligen_phrases=lvd_gligen_phrases,
+    #     latents=image_latents,
+    # ).frames
+    # # `diffusers` has a backward-breaking change
+    # # video_frames = (video_frames[0] * 255.).astype(np.uint8)
 
-    video_frames = pipe(
-        prompt,
-        negative_prompt=negative_prompt,
-        num_inference_steps=num_inference_steps,
-        height=H,
-        width=W,
-        num_frames=num_frames,
-        cross_attention_kwargs=cross_attention_kwargs,
-        generator=generator,
-        lvd_gligen_scheduled_sampling_beta=gligen_scheduled_sampling_beta,
-        lvd_gligen_boxes=lvd_gligen_boxes,
-        lvd_gligen_phrases=lvd_gligen_phrases,
-        latents=image_latents,
-    ).frames
-    # `diffusers` has a backward-breaking change
-    # video_frames = (video_frames[0] * 255.).astype(np.uint8)
+    # # %%
 
-    # %%
+    # if save_annotated_videos:
+    #     annotated_frames = [
+    #         np.array(
+    #             utils.draw_box(
+    #                 Image.fromarray(video_frame), [bbox[i] for bbox in bboxes], phrases
+    #             )
+    #         )
+    #         for i, video_frame in enumerate(video_frames)
+    #     ]
+    #     vis.save_frames(
+    #         f"{save_path}/video_seed{seed}_with_box",
+    #         frames=annotated_frames,
+    #         formats="gif",
+    #     )
 
-    if save_annotated_videos:
-        annotated_frames = [
-            np.array(
-                utils.draw_box(
-                    Image.fromarray(video_frame), [bbox[i] for bbox in bboxes], phrases
-                )
-            )
-            for i, video_frame in enumerate(video_frames)
-        ]
-        vis.save_frames(
-            f"{save_path}/video_seed{seed}_with_box",
-            frames=annotated_frames,
-            formats="gif",
-        )
-
-    vis.save_frames(
-        f"{parse.img_dir}/video_{save_suffix}", video_frames, formats=save_formats
-    )
+    # vis.save_frames(
+    #     f"{parse.img_dir}/video_{save_suffix}", video_frames, formats=save_formats
+    # )

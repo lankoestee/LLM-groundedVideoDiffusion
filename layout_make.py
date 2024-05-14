@@ -54,7 +54,17 @@ def image_embed(image, parsed_layout = None, H = 320, W = 576):
                         background[start[0] + h, start[1] + w] = body[h, w, :3]
         ret_images.append(background)
     return ret_images
-    
+
+def png_image_process(image):
+    shape = image.shape
+    # 将所有透明度为0的像素点的RGB值设为0
+    for h in range(shape[0]):
+        for w in range(shape[1]):
+            if image[h, w, 3] == 0:
+                image[h, w, :3] = 0
+    # 删除透明度通道
+    image = image[:, :, :3]
+    return image
 
 image = Image.open("images/bear_mask.png")
 array = np.array(image)
