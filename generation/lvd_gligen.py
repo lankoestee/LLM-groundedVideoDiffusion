@@ -133,16 +133,16 @@ def run(
     # print("image_latents.shape = ", image_latents.shape)
 
     image = Image.open("images/boy_mask.png")
+    image = image.resize((512, 512))
     array = np.array(image, dtype=np.uint8)
-    array = array.resize((512, 512, 4))
     image = png_image_process(array)
     image_latent = encode(pipe, image, generator)
     print("image_latent.shape = ", image_latent.shape)
     torch.save(image_latent, f"tmp/boy.pt")
 
     image = Image.open("images/girl_mask.png")
+    image = image.resize((512, 512))
     array = np.array(image, dtype=np.uint8)
-    array = array.resize((512, 512, 4))
     image = png_image_process(array)
     image_latent = encode(pipe, image, generator)
     print("image_latent.shape = ", image_latent.shape)
