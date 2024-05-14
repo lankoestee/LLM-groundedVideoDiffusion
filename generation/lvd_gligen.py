@@ -133,7 +133,7 @@ def run(
     images = image_embed(array)  # -> [24, (320, 576, 3)]
     # 转为int8
     images = np.array(images, dtype=np.uint8)
-    image_latents = torch.zeros((24, 1, 4, 40, 72))
+    image_latents = torch.zeros((24, 1, 4, 40, 72), dtype=torch.float16)
     for i in range(24):
         image_latents[i] = encode(pipe, images[i], generator)
     image_latents = image_latents.permute(1, 2, 0, 3, 4)
