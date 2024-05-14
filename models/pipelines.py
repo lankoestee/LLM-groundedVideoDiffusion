@@ -157,6 +157,7 @@ def encode(model_dict, image, generator):
     PIL object must have 3 channels
     """
     # [512, 512] -> [1, 4, 64, 64]
+    # [512, 256] -> [1, 4, 64, 32]
 
     vae, dtype = model_dict.vae, model_dict.dtype
 
