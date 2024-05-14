@@ -154,7 +154,9 @@ def latent_backward_guidance(
 def encode(model_dict, image, generator):
     """
     image should be a PIL object or numpy array with range 0 to 255
+    PIL object must have 3 channels
     """
+    # [512, 512] -> [1, 4, 64, 64]
 
     vae, dtype = model_dict.vae, model_dict.dtype
 
