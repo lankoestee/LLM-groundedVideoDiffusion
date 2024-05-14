@@ -666,7 +666,6 @@ class TextToVideoSDPipeline(
         print("----------")
         print("TextToVideoSDPipeline is called.")
         print("----------")
-        return None
         # 0. Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
         width = width or self.unet.config.sample_size * self.vae_scale_factor

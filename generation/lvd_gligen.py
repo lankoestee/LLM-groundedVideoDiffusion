@@ -66,6 +66,9 @@ def run(
     save_annotated_videos=False,
     save_formats=["gif", "joblib"],
 ):
+    print("----------")
+    print("Begin run LVD-GLIGEN")
+    print("----------")
     condition = parse.parsed_layout_to_condition(
         parsed_layout,
         tokenizer=pipe.tokenizer,
@@ -114,6 +117,9 @@ def run(
             ]
         )
 
+    print("----------")
+    print("Generating video")
+    print("----------")
     video_frames = pipe(
         prompt,
         negative_prompt=negative_prompt,
