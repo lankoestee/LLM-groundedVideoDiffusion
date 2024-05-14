@@ -1,4 +1,8 @@
 # LLM-grounded Video Diffusion Models
+
+> [!IMPORTANT]
+> Forked from [LLM-grounded Video Diffusion Models](https://github.com/TonyLianLong/LLM-groundedVideoDiffusion). **This repository is not an official implementation!**
+
 [Long Lian](https://tonylian.com/), [Baifeng Shi](https://bfshi.github.io/), [Adam Yala](https://www.adamyala.org/), [Trevor Darrell](https://people.eecs.berkeley.edu/~trevor/), [Boyi Li](https://sites.google.com/site/boyilics/home) at UC Berkeley/UCSF.
 
 ***International Conference on Learning Representations (ICLR) 2024***
