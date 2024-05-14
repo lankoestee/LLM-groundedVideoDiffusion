@@ -165,3 +165,7 @@ api_key.py
 img_generations
 
 .ruff_cache
+
+# Ignore .bin and .safetensor files
+*.bin
+*.safetensor
