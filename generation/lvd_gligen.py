@@ -137,7 +137,7 @@ def run(
     image = png_image_process(array)
     image_latent = encode(pipe, image, generator)
     print("image_latent.shape = ", image_latent.shape)
-    torch.load("tmp/bear_mask.pt", image_latent)
+    torch.save(image_latent, f"tmp/bear.pt")
 
     # video_frames = pipe(
     #     prompt,
