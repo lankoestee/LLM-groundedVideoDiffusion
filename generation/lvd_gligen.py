@@ -119,7 +119,7 @@ def run(
             ]
         )
     
-    image = Image.open("image/boy.png")
+    image = Image.open("images/boy.png")
     image_latents = encode(pipe, image, generator)
     print("----------")
     print("image_latents.shape = ", image_latents.shape)
