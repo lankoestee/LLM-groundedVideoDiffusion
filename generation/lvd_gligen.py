@@ -4,7 +4,7 @@ from diffusers import DPMSolverMultistepScheduler
 from models.unet_3d_condition import UNet3DConditionModel
 from models.pipelines import encode
 from utils import parse, vis
-from ..layout_make import image_embed
+from layout_make import image_embed
 from prompt import negative_prompt
 import utils
 import numpy as np
