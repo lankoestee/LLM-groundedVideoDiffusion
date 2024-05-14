@@ -734,6 +734,9 @@ class GroundedTextToVideoSDPipeline(DiffusionPipeline, TextualInversionLoaderMix
             generator,
             latents,
         )
+        print("---------")
+        print("lantents.shape", latents.shape)
+        print("---------")
 
         # 5.1 Prepare GLIGEN variables
         if lvd_gligen_boxes:
