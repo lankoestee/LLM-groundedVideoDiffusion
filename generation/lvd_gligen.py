@@ -1,5 +1,5 @@
 # from models.controllable_pipeline_text_to_video_synth import TextToVideoSDPipeline
-from diffusers.pipelines import text_to_video_synthesis as TextToVideoSDPipeline
+from diffusers.pipelines.text_to_video_synthesis.pipeline_text_to_video_synth import TextToVideoSDPipeline
 from diffusers import DPMSolverMultistepScheduler
 from models.unet_3d_condition import UNet3DConditionModel
 from utils import parse, vis
