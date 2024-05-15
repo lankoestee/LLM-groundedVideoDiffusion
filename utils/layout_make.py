@@ -2,7 +2,7 @@ from PIL import Image
 from matplotlib import pyplot as plt
 import numpy as np
 import torch
-from latent_vis import single_vis, remove_background
+from utils.latent_vis import single_vis, remove_background
 from diffusers.utils.torch_utils import randn_tensor
 
 def image_embed(image, parsed_layout = None, H = 320, W = 576):
