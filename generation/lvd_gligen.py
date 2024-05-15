@@ -152,7 +152,7 @@ def run(
     bear = torch.load("tmp/bear.pt", map_location='cpu')
     bear, bear_mask = remove_background(bear, 10)
     noise = latent_embed(bear, fps=24, generator=None)
-    noise = noise.dtype(torch.float16)
+    noise = noise.half()
 
     video_frames = pipe(
         prompt,
