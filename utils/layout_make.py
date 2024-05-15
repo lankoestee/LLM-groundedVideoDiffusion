@@ -118,6 +118,7 @@ def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None)
                     if start[0] + h < H and start[1] + w < W:
                         background[:, start[0] + h, start[1] + w] = body[:, h, w]
         noise[0, i] = background
+    noise = noise.permute(0, 2, 1, 3, 4)
     return noise
 
 
