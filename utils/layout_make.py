@@ -132,10 +132,3 @@ def png_image_process(image):
     # 删除透明度通道
     image = image[:, :, :3]
     return image
-
-bear = torch.load("tmp/bear.pt", map_location='cpu')
-bear, bear_mask = remove_background(bear, 10)
-noise = latent_embed(bear, fps=24, generator=None)
-print(noise.shape)
-for i in range(24):
-    single_vis(noise[0, i])
