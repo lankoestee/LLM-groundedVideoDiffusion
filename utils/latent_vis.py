@@ -1,6 +1,10 @@
 import torch
 import torchvision
+import numpy as np
+from scipy import ndimage
 import matplotlib.pyplot as plt
+from PIL import Image
+from rembg import remove
 
 def single_vis(feature_map):
     """
@@ -22,11 +26,61 @@ def single_vis(feature_map):
         # show_map = show_map[0]
         # 归一化到[0, 1]
         show_map = (show_map - show_map.min()) / (show_map.max() - show_map.min())
-        print(show_map.shape)
         img = torchvision.transforms.ToPILImage()(show_map)
         plt.imshow(img)
         plt.axis('off')
         plt.show()
 
-bear = torch.load("tmp/bear.pt", map_location='cpu')
-single_vis(bear)
+def remove_background(image, edge_size=10):
+    tensor = torch.mean(image[0], 0)
+    tensor = tensor.squeeze(0)
+    h, w = tensor.shape
+
+    # 提取图像边缘的像素用于背景分析
+    edges = np.concatenate([
+        tensor[:edge_size, :].flatten(),
+        tensor[-edge_size:, :].flatten(),
+        tensor[:, :edge_size].flatten(),
+        tensor[:, -edge_size:].flatten()
+    ])
+
+    # 计算背景像素的均值和标准差
+    bg_mean = np.mean(edges)
+    bg_std = np.std(edges)
+
+    # 设置阈值，通常为背景均值±3倍的标准差
+    threshold = bg_mean + 2 * bg_std
+
+    # 创建mask，背景部分为0，主体部分为1
+    mask = np.where(np.abs(tensor - bg_mean) <= threshold, 0, 1)
+
+    # 使用形态学操作去除噪声和填补空洞
+    mask = ndimage.binary_closing(mask, structure=np.ones((3,3))).astype(np.uint8)
+    mask = ndimage.binary_opening(mask, structure=np.ones((3,3))).astype(np.uint8)
+
+    mask = torch.tensor(mask)
+    image[0] = image[0] * mask
+
+    # 根据mask裁剪图像
+    non_zero = mask.nonzero()
+    h_min = non_zero[:, 0].min()
+    h_max = non_zero[:, 0].max()
+    w_min = non_zero[:, 1].min()
+    w_max = non_zero[:, 1].max()
+
+    image = image[:, :, h_min:h_max, w_min:w_max]
+    mask = mask[h_min:h_max, w_min:w_max]
+
+    return image, mask.expand_as(image)
+
+
+# boy = torch.load("tmp/bear.pt", map_location='cpu')
+# boy, boy_mask = remove_background(boy, 10)
+# print(boy.shape)
+# print(boy_mask.shape)
+# single_vis(boy)
+# single_vis(boy_mask[0])
+
+girl = Image.open("images/bear.jpg")
+new_image = remove(girl)
+new_image.save("images/bear_mask2.png")
