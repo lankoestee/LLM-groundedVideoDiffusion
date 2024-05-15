@@ -3,8 +3,6 @@ import torchvision
 import numpy as np
 from scipy import ndimage
 import matplotlib.pyplot as plt
-from PIL import Image
-from rembg import remove
 
 def single_vis(feature_map):
     """
