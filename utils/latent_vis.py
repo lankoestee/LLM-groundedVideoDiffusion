@@ -72,15 +72,3 @@ def remove_background(image, edge_size=10):
     mask = mask[h_min:h_max, w_min:w_max]
 
     return image, mask.expand_as(image)
-
-
-# boy = torch.load("tmp/bear.pt", map_location='cpu')
-# boy, boy_mask = remove_background(boy, 10)
-# print(boy.shape)
-# print(boy_mask.shape)
-# single_vis(boy)
-# single_vis(boy_mask[0])
-
-girl = Image.open("images/bear.jpg")
-new_image = remove(girl)
-new_image.save("images/bear_mask2.png")
