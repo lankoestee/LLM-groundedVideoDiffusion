@@ -6,4 +6,5 @@ python generate.py \
 --template_version v0.1 \
 --seed_offset 0 \
 --num_frames 24 \
+--repeats 2 \
 --gligen_scheduled_sampling_beta 0.4
