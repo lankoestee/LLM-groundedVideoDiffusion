@@ -104,7 +104,6 @@ def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None)
     else:
         layouts = parsed_layout
     
-    noise = torch.zeros((1, fps, C, H, W), device=latent.device)
     noise = randn_tensor((1, fps, C, H, W), generator=generator, dtype=torch.float16, device=latent.device)
     for i in range(fps):
         background = noise[0, i]
@@ -120,6 +119,7 @@ def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None)
                         background[:, start[0] + h, start[1] + w] = body[:, h, w]
         noise[0, i] = background
     noise = noise.permute(0, 2, 1, 3, 4)
+    noise = randn_tensor((1, fps, C, H, W), generator=generator, dtype=torch.float16, device=latent.device)
     return noise
 
 
