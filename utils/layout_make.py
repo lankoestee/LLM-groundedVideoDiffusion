@@ -111,15 +111,15 @@ def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None)
                  (layouts[i][2] - layouts[i][0]) * W)
         start = (int(layouts[i][1] * H), int(layouts[i][0] * W))
         shape = (int(shape[0]), int(shape[1]), C)
-        body = image[:, start[0]:start[0]+shape[0], start[1]:start[1]+shape[1]]
+        body = torch.nn.functional.interpolate(image.unsqueeze(0), size=(shape[0], shape[1]), mode='bilinear', align_corners=False).squeeze(0)
         for h in range(shape[0]):
             for w in range(shape[1]):
                 if body[:, h, w].sum() != 0:
                     if start[0] + h < H and start[1] + w < W:
                         background[:, start[0] + h, start[1] + w] = body[:, h, w]
         noise[0, i] = background
+    # noise = randn_tensor((1, fps, C, H, W), generator=generator, dtype=torch.float16, device=latent.device)
     noise = noise.permute(0, 2, 1, 3, 4)
-    noise = randn_tensor((1, fps, C, H, W), generator=generator, dtype=torch.float16, device=latent.device)
     return noise
 
 
