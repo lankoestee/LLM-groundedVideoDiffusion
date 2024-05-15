@@ -149,7 +149,7 @@ def run(
     # print("image_latent.shape = ", image_latent.shape)
     # torch.save(image_latent, f"tmp/girl.pt")
 
-    bear = torch.load("tmp/bear.pt", map_location='cpu')
+    bear = torch.load("tmp/bear.pt")
     bear, bear_mask = remove_background(bear, 10)
     noise = latent_embed(bear, fps=24, generator=generator)
 
