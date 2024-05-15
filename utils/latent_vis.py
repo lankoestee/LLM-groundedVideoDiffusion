@@ -47,7 +47,7 @@ def remove_background(image, edge_size=10):
     bg_std = np.std(edges)
 
     # 设置阈值，通常为背景均值±3倍的标准差
-    threshold = bg_mean + 2 * bg_std
+    threshold = bg_mean + 3 * bg_std
 
     # 创建mask，背景部分为0，主体部分为1
     mask = np.where(np.abs(tensor - bg_mean) <= threshold, 0, 1)
