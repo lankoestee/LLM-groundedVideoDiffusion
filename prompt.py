@@ -73,7 +73,11 @@ prompts_demo = [
     "A bear walks from the left to the right",
 ]
 
-prompt_types = ["demo", "lvd"]
+prompts_street = [
+    "A Man walking on the street from far to near",
+]
+
+prompt_types = ["demo", "lvd", "street"]
 
 negative_prompt = (
     "dull, gray, unrealistic, colorless, blurry, low-quality, weird, abrupt"
@@ -93,6 +97,11 @@ def get_prompts(prompt_type, return_predicates=False):
             not return_predicates
         ), "Predicates are not supported for this prompt type"
         prompts = prompts_demo
+    elif prompt_type == "street":
+        assert (
+            not return_predicates
+        ), "Predicates are not supported for this prompt type"
+        prompts = prompts_street
     else:
         raise ValueError(f"Unknown prompt type: {prompt_type}")
 

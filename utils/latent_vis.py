@@ -3,6 +3,7 @@ import torchvision
 import numpy as np
 from scipy import ndimage
 import matplotlib.pyplot as plt
+from layout_make import latent_embed
 
 def single_vis(feature_map):
     """
@@ -70,3 +71,10 @@ def remove_background(image, edge_size=10):
     mask = mask[h_min:h_max, w_min:w_max]
 
     return image, mask.expand_as(image)
+
+
+bear = torch.load("tmp/bear.pt", map_location="cpu")
+bear, bear_mask = remove_background(bear, 10)
+noise = latent_embed(bear, fps=24)
+noise = noise.permute(0, 2, 1, 3, 4)
+single_vis(noise[0])
