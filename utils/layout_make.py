@@ -119,8 +119,7 @@ def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None,
         if first_fps is not None and i == first_fps:
             break
         if i // gap == 0:
-            continue
-        noise[0, i] = background
+            noise[0, i] = background
     # noise = randn_tensor((1, fps, C, H, W), generator=generator, dtype=torch.float16, device=latent.device)
     noise = noise.permute(0, 2, 1, 3, 4)
     return noise
