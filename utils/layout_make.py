@@ -57,7 +57,7 @@ def image_embed(image, parsed_layout = None, H = 320, W = 576):
         ret_images.append(background)
     return ret_images
 
-def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None, only_first=False):
+def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None, first_fps=None):
     assert len(latent.shape) in [3, 4]
     if len(latent.shape) == 3:
         C, _, _ = latent.shape
@@ -117,7 +117,7 @@ def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None,
                     if start[0] + h < H and start[1] + w < W:
                         background[:, start[0] + h, start[1] + w] = body[:, h, w]
         noise[0, i] = background
-        if only_first:
+        if first_fps is not None and i == first_fps:
             break
     # noise = randn_tensor((1, fps, C, H, W), generator=generator, dtype=torch.float16, device=latent.device)
     noise = noise.permute(0, 2, 1, 3, 4)
