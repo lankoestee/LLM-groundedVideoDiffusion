@@ -152,7 +152,7 @@ def run(
     bear = torch.load("tmp/bear.pt", map_location="cpu")
     bear, bear_mask = remove_background(bear, 10)
     bear = bear.to("cuda")
-    noise = latent_embed(bear, fps=24, generator=generator)
+    noise = latent_embed(bear, fps=24, generator=generator, only_first=True)
     noise = noise.to(torch.float16)
 
     video_frames = pipe(
