@@ -3,7 +3,7 @@ import torchvision
 import numpy as np
 from scipy import ndimage
 import matplotlib.pyplot as plt
-from layout_make import latent_embed
+from utils.layout_make import latent_embed
 
 def single_vis(feature_map):
     """

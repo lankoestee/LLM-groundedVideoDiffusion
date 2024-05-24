@@ -61,10 +61,10 @@ def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None)
     assert len(latent.shape) in [3, 4]
     if len(latent.shape) == 3:
         C, _, _ = latent.shape
-        image = latent
+        image = latent.to(torch.float32)
     elif len(latent.shape) == 4:
         _, C, _, _ = latent.shape
-        image = latent[0]
+        image = latent[0].to(torch.float32)
     else:
         raise ValueError("Invalid latent shape")
     
@@ -103,7 +103,7 @@ def latent_embed(latent, parsed_layout=None, fps=24, H=40, W=72, generator=None)
     else:
         layouts = parsed_layout
     
-    noise = randn_tensor((1, fps, C, H, W), generator=generator, dtype=torch.float16, device=latent.device)
+    noise = randn_tensor((1, fps, C, H, W), generator=generator, device=latent.device)
     for i in range(fps):
         background = noise[0, i]
         shape = ((layouts[i][3] - layouts[i][1]) * H, 
