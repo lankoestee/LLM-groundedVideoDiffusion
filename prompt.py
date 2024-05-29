@@ -71,10 +71,16 @@ stop = "\n\n"
 
 prompts_demo = [
     "A bear walks from the left to the right",
-]
-
-prompts_street = [
-    "A Man walking on the street from far to near",
+    "A tramp wandering the streets",
+    "A dog chases a cat in the park",
+    "A young lady is shopping at the mall",
+    "An elderly woman is driving on a coastal highway",
+    "A group of children are playing freely on the playground, some playing football, others racing",
+    "A young man is drinking coffee in a cafe, reading a book",
+    "Mountains loom in the distance, shrouded in mist, as an eagle circles overhead",
+    "In orbit, an astronaut is conducting a spacewalk to repair a space station's solar panels",
+    "A cloud clears, and the fog lifts; the weather brightens from overcast to fine",
+    "A clown is performing with a red nose at the circus",
 ]
 
 prompt_types = ["demo", "lvd", "street"]

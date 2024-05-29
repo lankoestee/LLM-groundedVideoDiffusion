@@ -149,11 +149,11 @@ def run(
     # print("image_latent.shape = ", image_latent.shape)
     # torch.save(image_latent, f"tmp/girl.pt")
 
-    bear = torch.load("tmp/bear.pt", map_location="cpu")
-    bear, bear_mask = remove_background(bear, 10)
-    bear = bear.to("cuda")
-    noise = latent_embed(bear, fps=24, generator=generator, gap=2)
-    noise = noise.to(torch.float16)
+    # bear = torch.load("tmp/bear.pt", map_location="cpu")
+    # bear, bear_mask = remove_background(bear, 10)
+    # bear = bear.to("cuda")
+    # noise = latent_embed(bear, fps=24, generator=generator, gap=2)
+    # noise = noise.to(torch.float16)
 
     video_frames = pipe(
         prompt,
@@ -167,7 +167,6 @@ def run(
         lvd_gligen_scheduled_sampling_beta=gligen_scheduled_sampling_beta,
         lvd_gligen_boxes=lvd_gligen_boxes,
         lvd_gligen_phrases=lvd_gligen_phrases,
-        latents=noise,
     ).frames
     # `diffusers` has a backward-breaking change
     # video_frames = (video_frames[0] * 255.).astype(np.uint8)
