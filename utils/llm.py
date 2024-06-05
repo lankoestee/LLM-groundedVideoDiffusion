@@ -20,6 +20,7 @@ model_names = [
     "gpt-3.5",
     "gpt-4",
     "gpt-4-1106-preview",
+    "qwen-turbo",
 ]
 
 
