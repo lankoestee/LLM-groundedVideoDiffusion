@@ -31,8 +31,10 @@ def single_vis(feature_map):
         plt.show()
 
 def remove_background(image, edge_size=10):
+    image = image.to('cpu')
     tensor = torch.mean(image[0], 0)
     tensor = tensor.squeeze(0)
+    tensor = tensor.to('cpu')
     h, w = tensor.shape
 
     # 提取图像边缘的像素用于背景分析
@@ -73,8 +75,8 @@ def remove_background(image, edge_size=10):
     return image, mask.expand_as(image)
 
 
-bear = torch.load("tmp/bear.pt", map_location="cpu")
-bear, bear_mask = remove_background(bear, 10)
-noise = latent_embed(bear, fps=24)
-noise = noise.permute(0, 2, 1, 3, 4)
-single_vis(noise[0])
+# bear = torch.load("tmp/bear.pt", map_location="cpu")
+# bear, bear_mask = remove_background(bear, 10)
+# noise = latent_embed(bear, fps=24)
+# noise = noise.permute(0, 2, 1, 3, 4)
+# single_vis(noise[0])

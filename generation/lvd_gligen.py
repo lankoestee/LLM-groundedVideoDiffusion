@@ -4,7 +4,7 @@ from diffusers import DPMSolverMultistepScheduler
 from models.unet_3d_condition import UNet3DConditionModel
 from models.pipelines import encode
 from utils import parse, vis
-from utils.layout_make import latent_embed
+from utils.layout_make import latent_embed, png_image_process
 from utils.latent_vis import single_vis, remove_background
 from prompt import negative_prompt
 import utils
@@ -121,7 +121,7 @@ def run(
             ]
         )
 
-    # image = Image.open("images/bear_mask.png")
+    # image = Image.open("images/rembg/boy.png")
     # array = np.array(image)
     # images = image_embed(array)  # -> [24, (320, 576, 3)]
     # # 转为int8
@@ -133,27 +133,25 @@ def run(
     # image_latents = image_latents * 0.5 + torch.randn_like(image_latents) * 0.5
     # print("image_latents.shape = ", image_latents.shape)
 
-    # image = Image.open("images/boy_mask.png")
-    # image = image.resize((512, 512))
-    # array = np.array(image, dtype=np.uint8)
-    # image = png_image_process(array)
-    # image_latent = encode(pipe, image, generator)
-    # print("image_latent.shape = ", image_latent.shape)
-    # torch.save(image_latent, f"tmp/boy.pt")
-
-    # image = Image.open("images/girl_mask.png")
-    # image = image.resize((512, 512))
-    # array = np.array(image, dtype=np.uint8)
-    # image = png_image_process(array)
-    # image_latent = encode(pipe, image, generator)
-    # print("image_latent.shape = ", image_latent.shape)
-    # torch.save(image_latent, f"tmp/girl.pt")
+    image = Image.open("images/rembg/" + phrases[0] + ".png")
+    image = image.resize((512, 512))
+    array = np.array(image, dtype=np.uint8)
+    image = png_image_process(array)
+    image_latent = encode(pipe, image, generator)
+    print("image_latent.shape = ", image_latent.shape)
+    # print("----------")
+    # print("bbox:", bboxes)
+    # print("phrases:", phrases)
+    # print("----------")
+    # bbox: [[[0.0, 0.390625, 0.09765625, 0.5859375], [0.04245881453804348, 0.4118544072690217, 0.14011506453804348, 0.6071669072690218], [0.08491762907608696, 0.43308381453804345, 0.18257387907608696, 0.6283963145380435], [0.12737644361413045, 0.45431322180706524, 0.22503269361413045, 0.6496257218070652], [0.16983525815217393, 0.47554262907608696, 0.26749150815217393, 0.6708551290760869], [0.2038032863451087, 0.4967720363451087, 0.3014595363451087, 0.6920845363451087], [0.22503269361413042, 0.5180014436141305, 0.3226889436141304, 0.7133139436141305], [0.2462621008831522, 0.5392308508831521, 0.3439183508831522, 0.7345433508831521], [0.26749150815217393, 0.5604602581521739, 0.36514775815217393, 0.7557727581521739], [0.28872091542119566, 0.5816896654211956, 0.38637716542119566, 0.7770021654211956], [0.3099503226902174, 0.6029190726902174, 0.4076065726902174, 0.7982315726902174], [0.33117972995923917, 0.6241484799592392, 0.42883597995923917, 0.8194609799592392], [0.3524091372282609, 0.6453778872282608, 0.4500653872282609, 0.8406903872282608], [0.3736385444972826, 0.6666072944972826, 0.4712947944972826, 0.8619197944972826], [0.3948679517663044, 0.68359375, 0.4925242017663044, 0.87890625], [0.41609735903532613, 0.68359375, 0.5137536090353261, 0.87890625], [0.43732676630434786, 0.68359375, 0.5349830163043479, 0.87890625], [0.45855617357336953, 0.68359375, 0.5562124235733695, 0.87890625], [0.47978558084239126, 0.68359375, 0.5774418308423913, 0.87890625], [0.5010149881114131, 0.6708600118885869, 0.5986712381114131, 0.8661725118885869], [0.5222443953804348, 0.6496306046195652, 0.6199006453804348, 0.8449431046195652], [0.5434738026494565, 0.6284011973505435, 0.6411300526494565, 0.8237136973505435], [0.5647032099184783, 0.6071717900815217, 0.6623594599184783, 0.8024842900815217], [0.5859326171875, 0.5859423828125, 0.6835888671875, 0.7812548828125]]]
+    # phrases: ['boy']
+    torch.save(image_latent, f"tmp/" + phrases[0] + ".pt")
 
     # bear = torch.load("tmp/bear.pt", map_location="cpu")
-    # bear, bear_mask = remove_background(bear, 10)
-    # bear = bear.to("cuda")
-    # noise = latent_embed(bear, fps=24, generator=generator, gap=2)
-    # noise = noise.to(torch.float16)
+    image_latent, _ = remove_background(image_latent, 10)
+    image_latent = image_latent.to("cuda")
+    noise = latent_embed(image_latent, parsed_layout=bboxes[0], fps=24, generator=generator, gap=3)
+    noise = noise.to(torch.float16)
 
     video_frames = pipe(
         prompt,
@@ -167,6 +165,7 @@ def run(
         lvd_gligen_scheduled_sampling_beta=gligen_scheduled_sampling_beta,
         lvd_gligen_boxes=lvd_gligen_boxes,
         lvd_gligen_phrases=lvd_gligen_phrases,
+        latents=noise,
     ).frames
     # `diffusers` has a backward-breaking change
     # video_frames = (video_frames[0] * 255.).astype(np.uint8)
