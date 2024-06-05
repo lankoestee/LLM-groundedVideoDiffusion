@@ -1,50 +1,146 @@
-[
-    "A boy walks from left to right in a park",
-    "A boy runs from left to right in a dense forest",
-    "A boy jumps up and down in a house",
-    "A boy sitts on a chair in a room",
-    "A boy walk through a street in a city",
-    "A boy swims in a wild river",
-    "A girl walks from left to right in a park",
-    "A girl runs from left to right in a dense forest",
-    "A girl jumps up and down in a house",
-    "A girl sits on a chair in a room",
-    "A girl walks through a street in a city",
-    "A girl swims in a wild river",
-    "A cat walks from left to right in a park",
-    "A cat runs from left to right in a dense forest",
-    "A cat jumps up and down in a house",
-    "A cat sits on a chair in a room",
-    "A cat walks through a street in a city",
-    "A cat swims in a wild river",
-    "A dog walks from left to right in a park",
-    "A dog runs from left to right in a dense forest",
-    "A dog jumps up and down in a house",
-    "A dog sits on a chair in a room",
-    "A dog walks through a street in a city",
-    "A dog swims in a wild river",
-    "A sheep walks from left to right in a park",
-    "A sheep runs from left to right in a dense forest",
-    "A sheep jumps up and down in a house",
-    "A sheep sits on a chair in a room",
-    "A sheep walks through a street in a city",
-    "A sheep swims in a wild river",
-    "Loopy walks from left to right in a park",
-    "Loopy runs from left to right in a dense forest",
-    "Loopy jumps up and down in a house",
-    "Loopy sits on a chair in a room",
-    "Loopy walks through a street in a city",
-    "Loopy swims in a wild river",
-    "A man walks from left to right in a park",
-    "A man runs from left to right in a dense forest",
-    "A man jumps up and down in a house",
-    "A man sits on a chair in a room",
-    "A man walks through a street in a city",
-    "A man swims in a wild river",
-    "A woman walks from left to right in a park",
-    "A woman runs from left to right in a dense forest",
-    "A woman jumps up and down in a house",
-    "A woman sits on a chair in a room",
-    "A woman walks through a street in a city",
-    "A woman swims in a wild river"
-]
+{
+    "A boy walks from left to right in a park": [
+        "Reasoning: The boy moves from left to right, so his x-coordinate increases. The y-coordinates will remain relatively stable since he's walking at a constant height.\nFrame 1: [{'id': 0, 'name': 'boy', 'box': [50, 250, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'boy', 'box': [100, 250, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'boy', 'box': [150, 250, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'boy', 'box': [200, 250, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'boy', 'box': [250, 250, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'boy', 'box': [300, 250, 50, 50]}]\nBackground keyword: park"
+    ],
+    "A boy runs from left to right in a dense forest": [
+        "Reasoning: The boy is running from left to right, so he should start at the left side of the frame and move towards the right. His speed may gradually decrease as he covers the distance.\nFrame 1: [{'id': 0, 'name': 'boy', 'box': [0, 200, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'boy', 'box': [100, 250, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'boy', 'box': [150, 300, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'boy', 'box': [200, 350, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'boy', 'box': [250, 350, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'boy', 'box': [300, 300, 50, 100]}]\nBackground keyword: dense forest"
+    ],
+    "A boy jumps up and down in a house": [
+        "Reasoning: The boy jumping up and down implies he starts at a lower y-coordinate, jumps higher, and then comes back down. The x-coordinate remains relatively constant.\nFrame 1: [{'id': 0, 'name': 'boy', 'box': [256, 100, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'boy', 'box': [256, 150, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'boy', 'box': [256, 200, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'boy', 'box': [256, 150, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'boy', 'box': [256, 100, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'boy', 'box': [256, 150, 50, 100]}]\nBackground keyword: house"
+    ],
+    "A boy sitts on a chair in a room": [
+        "Reasoning: The boy is sitting, so he will be centered and have a moderate height. The chair should also be visible around him.\nFrame 1: [{'id': 0, 'name': 'boy', 'box': [256, 256, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'boy', 'box': [256, 256, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'boy', 'box': [256, 256, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'boy', 'box': [256, 256, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'boy', 'box': [256, 256, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'boy', 'box': [256, 256, 50, 100]}]\nBackground keyword: room, chair"
+    ],
+    "A boy walk through a street in a city": [
+        "Reasoning: The boy is walking, so he'll move steadily from left to right across the frame. Assuming a pedestrian pace, his position won't change significantly within each frame.\nFrame 1: [{'id': 0, 'name': 'boy', 'box': [20, 200, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'boy', 'box': [70, 200, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'boy', 'box': [120, 200, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'boy', 'box': [170, 200, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'boy', 'box': [220, 200, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'boy', 'box': [270, 200, 50, 50]}]\nBackground keyword: city street"
+    ],
+    "A boy swims in a wild river": [
+        "Reasoning: The boy is swimming, so he will be in the center of the frame, with his head slightly above water level and body position adjusting for the flow. The river might have some waves, so the bounding box should reflect this movement.\nFrame 1: [{'id': 0, 'name': 'boy', 'box': [256, 200, 128, 150]}]\nFrame 2: [{'id': 0, 'name': 'boy', 'box': [256, 195, 128, 155]}]\nFrame 3: [{'id': 0, 'name': 'boy', 'box': [256, 200, 128, 150]}]\nFrame 4: [{'id': 0, 'name': 'boy', 'box': [256, 195, 128, 155]}]\nFrame 5: [{'id': 0, 'name': 'boy', 'box': [256, 200, 128, 150]}]\nFrame 6: [{'id': 0, 'name': 'boy', 'box': [256, 195, 128, 155]}]\nBackground keyword: river"
+    ],
+    "A girl walks from left to right in a park": [
+        "Reasoning: The girl moves from left to right, so her x-coordinate increases. She maintains a similar height throughout the walk.\nFrame 1: [{'id': 0, 'name': 'girl', 'box': [50, 250, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'girl', 'box': [100, 250, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'girl', 'box': [150, 250, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'girl', 'box': [200, 250, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'girl', 'box': [250, 250, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'girl', 'box': [300, 250, 50, 100]}]\nBackground keyword: park"
+    ],
+    "A girl runs from left to right in a dense forest": [
+        "Reasoning: The girl is running from left to right, so her x-coordinate increases. She'll maintain a consistent size while moving.\nFrame 1: [{'id': 0, 'name': 'girl', 'box': [0, 200, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'girl', 'box': [100, 200, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'girl', 'box': [200, 200, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'girl', 'box': [300, 200, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'girl', 'box': [400, 200, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'girl', 'box': [450, 200, 50, 100]}]\nBackground keyword: dense forest"
+    ],
+    "A girl jumps up and down in a house": [
+        "Reasoning: The girl jumping up and down implies she starts at a lower y-coordinate, rises, and then falls again. Her x-coordinate will remain relatively constant.\nFrame 1: [{'id': 0, 'name': 'girl', 'box': [256, 200, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'girl', 'box': [256, 290, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'girl', 'box': [256, 380, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'girl', 'box': [256, 290, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'girl', 'box': [256, 200, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'girl', 'box': [256, 290, 50, 100]}]\nBackground keyword: house"
+    ],
+    "A girl sits on a chair in a room": [
+        "Reasoning: The girl is sitting, so her position should be stable, likely around the center of the frame. The chair will be slightly larger to accommodate her.\nFrame 1: [{'id': 0, 'name': 'girl', 'box': [256, 256, 100, 150]}]\nFrame 2: [{'id': 0, 'name': 'girl', 'box': [256, 256, 100, 150]}]\nFrame 3: [{'id': 0, 'name': 'girl', 'box': [256, 256, 100, 150]}]\nFrame 4: [{'id': 0, 'name': 'girl', 'box': [256, 256, 100, 150]}]\nFrame 5: [{'id': 0, 'name': 'girl', 'box': [256, 256, 100, 150]}]\nFrame 6: [{'id': 0, 'name': 'girl', 'box': [256, 256, 100, 150]}]\nBackground keyword: room, chair"
+    ],
+    "A girl walks through a street in a city": [
+        "Reasoning: The girl is walking, so she moves gradually from left to right. Her height will remain constant, and her bounding box should reflect this movement.\nFrame 1: [{'id': 0, 'name': 'girl', 'box': [30, 160, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'girl', 'box': [80, 160, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'girl', 'box': [130, 160, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'girl', 'box': [180, 160, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'girl', 'box': [230, 160, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'girl', 'box': [280, 160, 50, 50]}]\nBackground keyword: city street"
+    ],
+    "A girl swims in a wild river": [
+        "Reasoning: The girl will move from left to right while swimming, maintaining her position within the frame. The water may create some splashes around her.\nFrame 1: [{'id': 0, 'name': 'girl', 'box': [50, 250, 100, 150]}]\nFrame 2: [{'id': 0, 'name': 'girl', 'box': [150, 250, 100, 150]}]\nFrame 3: [{'id': 0, 'name': 'girl', 'box': [250, 250, 100, 150]}]\nFrame 4: [{'id': 0, 'name': 'girl', 'box': [350, 250, 100, 150]}]\nFrame 5: [{'id': 0, 'name': 'girl', 'box': [450, 250, 100, 150]}]\nFrame 6: [{'id': 0, 'name': 'girl', 'box': [512, 250, 100, 150]}]\nBackground keyword: river"
+    ],
+    "A cat walks from left to right in a park": [
+        "Reasoning: The cat moves from left to right, so its x-coordinate increases. Assuming the cat's movement is relatively consistent, the box should gradually shift horizontally.\nFrame 1: [{'id': 0, 'name': 'cat', 'box': [0, 200, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'cat', 'box': [50, 200, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'cat', 'box': [100, 200, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'cat', 'box': [150, 200, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'cat', 'box': [200, 200, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'cat', 'box': [250, 200, 50, 50]}]\nBackground keyword: park"
+    ],
+    "A cat runs from left to right in a dense forest": [
+        "Reasoning: The cat starts on the left and moves right, maintaining its position within the frame. Dense forest implies some obstructions, so the path might be winding but still within the frame limits.\nFrame 1: [{'id': 0, 'name': 'cat', 'box': [0, 200, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'cat', 'box': [80, 250, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'cat', 'box': [160, 320, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'cat', 'box': [240, 370, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'cat', 'box': [320, 400, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'cat', 'box': [400, 420, 50, 50]}]\nBackground keyword: dense forest"
+    ],
+    "A cat jumps up and down in a house": [
+        "Reasoning: The cat jumps, so its y-coordinate will initially decrease (upward jump) and then increase (downward due to gravity). The x-coordinate remains relatively constant.\nFrame 1: [{'id': 0, 'name': 'cat', 'box': [256, 400, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'cat', 'box': [256, 350, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'cat', 'box': [256, 400, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'cat', 'box': [256, 350, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'cat', 'box': [256, 400, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'cat', 'box': [256, 350, 50, 100]}]\nBackground keyword: house"
+    ],
+    "A cat sits on a chair in a room": [
+        "Reasoning: The cat is sitting, so it will be at a consistent height with its body centered within the frame. The box size reflects the cat's size.\nFrame 1: [{'id': 0, 'name': 'cat', 'box': [208, 158, 100, 100]}]\nFrame 2: [{'id': 0, 'name': 'cat', 'box': [208, 158, 100, 100]}]\nFrame 3: [{'id': 0, 'name': 'cat', 'box': [208, 158, 100, 100]}]\nFrame 4: [{'id': 0, 'name': 'cat', 'box': [208, 158, 100, 100]}]\nFrame 5: [{'id': 0, 'name': 'cat', 'box': [208, 158, 100, 100]}]\nFrame 6: [{'id': 0, 'name': 'cat', 'box': [208, 158, 100, 100]}]\nBackground keyword: room, chair"
+    ],
+    "A cat walks through a street in a city": [
+        "Reasoning: The cat is walking, so it moves steadily along the x-axis while maintaining its height. The cat's path should be realistic within the street boundaries.\nFrame 1: [{'id': 0, 'name': 'cat', 'box': [50, 150, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'cat', 'box': [100, 150, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'cat', 'box': [150, 150, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'cat', 'box': [200, 150, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'cat', 'box': [250, 150, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'cat', 'box': [300, 150, 50, 50]}]\nBackground keyword: city street"
+    ],
+    "A cat swims in a wild river": [
+        "Reasoning: The cat is swimming, so it should be in the middle of the frame with a constant position vertically since it's in water. Its x-coordinate may vary slightly due to movement in the river.\nFrame 1: [{'id': 0, 'name': 'cat', 'box': [256, 160, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'cat', 'box': [256, 160, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'cat', 'box': [256, 160, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'cat', 'box': [256, 160, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'cat', 'box': [256, 160, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'cat', 'box': [256, 160, 50, 50]}]\nBackground keyword: wild river"
+    ],
+    "A dog walks from left to right in a park": [
+        "Reasoning: The dog moves from left to right, so its x-coordinate increases. The y-coordinate stays relatively constant as it walks on the ground.\nFrame 1: [{'id': 0, 'name': 'dog', 'box': [0, 250, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'dog', 'box': [50, 250, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'dog', 'box': [100, 250, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'dog', 'box': [150, 250, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'dog', 'box': [200, 250, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'dog', 'box': [250, 250, 50, 50]}]\nBackground keyword: park"
+    ],
+    "A dog runs from left to right in a dense forest": [
+        "Reasoning: The dog starts on the left and moves to the right, maintaining a consistent speed. The forest background implies some occlusion, but the dog's size should remain relatively constant within the frame.\nFrame 1: [{'id': 0, 'name': 'dog', 'box': [50, 200, 100, 100]}]\nFrame 2: [{'id': 0, 'name': 'dog', 'box': [150, 200, 100, 100]}]\nFrame 3: [{'id': 0, 'name': 'dog', 'box': [250, 200, 100, 100]}]\nFrame 4: [{'id': 0, 'name': 'dog', 'box': [350, 200, 100, 100]}]\nFrame 5: [{'id': 0, 'name': 'dog', 'box': [450, 200, 100, 100]}]\nFrame 6: [{'id': 0, 'name': 'dog', 'box': [512, 200, 100, 100]}]\nBackground keyword: forest"
+    ],
+    "A dog jumps up and down in a house": [
+        "Reasoning: The dog jumps, so its y-coordinate will change rapidly, while its x-coordinate remains relatively constant. The height of the jump will gradually decrease over time due to gravity.\nFrame 1: [{'id': 0, 'name': 'dog', 'box': [200, 250, 100, 150]}]\nFrame 2: [{'id': 0, 'name': 'dog', 'box': [200, 210, 100, 150]}]\nFrame 3: [{'id': 0, 'name': 'dog', 'box': [200, 180, 100, 150]}]\nFrame 4: [{'id': 0, 'name': 'dog', 'box': [200, 210, 100, 150]}]\nFrame 5: [{'id': 0, 'name': 'dog', 'box': [200, 250, 100, 150]}]\nFrame 6: [{'id': 0, 'name': 'dog', 'box': [200, 210, 100, 150]}]\nBackground keyword: house"
+    ],
+    "A dog sits on a chair in a room": [
+        "Reasoning: The dog is sitting, so it will be in the center or slightly off-center with its height covering most of its body. The chair might take up some space around it.\nFrame 1: [{'id': 0, 'name': 'dog', 'box': [256, 160, 100, 200]}]\nFrame 2: [{'id': 0, 'name': 'dog', 'box': [256, 160, 100, 200]}]\nFrame 3: [{'id': 0, 'name': 'dog', 'box': [256, 160, 100, 200]}]\nFrame 4: [{'id': 0, 'name': 'dog', 'box': [256, 160, 100, 200]}]\nFrame 5: [{'id': 0, 'name': 'dog', 'box': [256, 160, 100, 200]}]\nFrame 6: [{'id': 0, 'name': 'dog', 'box': [256, 160, 100, 200]}]\nBackground keyword: room, chair"
+    ],
+    "A dog walks through a street in a city": [
+        "Reasoning: The dog is walking, so its position should move gradually from left to right within the frame. Assuming the dog's pace is consistent, the bounding box will shift horizontally.\nFrame 1: [{'id': 0, 'name': 'dog', 'box': [50, 150, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'dog', 'box': [100, 150, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'dog', 'box': [150, 150, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'dog', 'box': [200, 150, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'dog', 'box': [250, 150, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'dog', 'box': [300, 150, 50, 50]}]\nBackground keyword: city street"
+    ],
+    "A dog swims in a wild river": [
+        "Reasoning: The dog will move from left to right as it swims in the river. Its position should reflect the flow of water and maintain a realistic swimming pattern.\nFrame 1: [{'id': 0, 'name': 'dog', 'box': [0, 260, 100, 100]}]\nFrame 2: [{'id': 0, 'name': 'dog', 'box': [100, 280, 100, 100]}]\nFrame 3: [{'id': 0, 'name': 'dog', 'box': [200, 300, 100, 100]}]\nFrame 4: [{'id': 0, 'name': 'dog', 'box': [300, 320, 100, 100]}]\nFrame 5: [{'id': 0, 'name': 'dog', 'box': [400, 340, 100, 100]}]\nFrame 6: [{'id': 0, 'name': 'dog', 'box': [500, 360, 100, 100]}]\nBackground keyword: wild river"
+    ],
+    "A sheep walks from left to right in a park": [
+        "Reasoning: The sheep moves from left to right, so its x-coordinate increases. The sheep's size and position should remain consistent throughout the frames.\nFrame 1: [{'id': 0, 'name': 'sheep', 'box': [0, 200, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'sheep', 'box': [50, 200, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'sheep', 'box': [100, 200, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'sheep', 'box': [150, 200, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'sheep', 'box': [200, 200, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'sheep', 'box': [250, 200, 50, 50]}]\nBackground keyword: park"
+    ],
+    "A sheep runs from left to right in a dense forest": [
+        "Reasoning: The sheep is running from left to right, so its x-coordinate increases over time. It might have some upward movement initially and then maintain a constant speed on the ground.\nFrame 1: [{'id': 0, 'name': 'sheep', 'box': [0, 200, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'sheep', 'box': [100, 200, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'sheep', 'box': [200, 200, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'sheep', 'box': [300, 200, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'sheep', 'box': [400, 200, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'sheep', 'box': [450, 200, 50, 50]}]\nBackground keyword: dense forest"
+    ],
+    "A sheep jumps up and down in a house": [
+        "Reasoning: The sheep is jumping, so its y-coordinate will initially decrease (jumping up) and then increase (falling down). The x-coordinate remains relatively constant as it moves within the house.\nFrame 1: [{'id': 0, 'name': 'sheep', 'box': [256, 300, 100, 100]}]\nFrame 2: [{'id': 0, 'name': 'sheep', 'box': [256, 380, 100, 100]}]\nFrame 3: [{'id': 0, 'name': 'sheep', 'box': [256, 300, 100, 100]}]\nFrame 4: [{'id': 0, 'name': 'sheep', 'box': [256, 380, 100, 100]}]\nFrame 5: [{'id': 0, 'name': 'sheep', 'box': [256, 300, 100, 100]}]\nFrame 6: [{'id': 0, 'name': 'sheep', 'box': [256, 380, 100, 100]}]\nBackground keyword: house"
+    ],
+    "A sheep sits on a chair in a room": [
+        "Reasoning: A sheep sitting implies it's stationary, so the bounding box will remain relatively consistent. It's on a chair, so the y-coordinate should be around the chair's height, and the box should be centered on the sheep.\nFrame 1: [{'id': 0, 'name': 'sheep', 'box': [256, 280, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'sheep', 'box': [256, 280, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'sheep', 'box': [256, 280, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'sheep', 'box': [256, 280, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'sheep', 'box': [256, 280, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'sheep', 'box': [256, 280, 50, 50]}]\nBackground keyword: room"
+    ],
+    "A sheep walks through a street in a city": [
+        "Reasoning: The sheep is walking, so it moves steadily along, starting from the left side of the frame and gradually moving to the right.\nFrame 1: [{'id': 0, 'name': 'sheep', 'box': [20, 200, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'sheep', 'box': [70, 250, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'sheep', 'box': [120, 300, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'sheep', 'box': [170, 350, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'sheep', 'box': [220, 400, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'sheep', 'box': [270, 450, 50, 50]}]\nBackground keyword: city street"
+    ],
+    "A sheep swims in a wild river": [
+        "Reasoning: A swimming sheep will have its body mostly horizontal, with the head at a slightly higher y-coordinate than the tail. The position will shift slightly due to water movement.\nFrame 1: [{'id': 0, 'name': 'swimming sheep', 'box': [200, 250, 100, 100]}]\nFrame 2: [{'id': 0, 'name': 'swimming sheep', 'box': [200, 245, 100, 100]}]\nFrame 3: [{'id': 0, 'name': 'swimming sheep', 'box': [200, 240, 100, 100]}]\nFrame 4: [{'id': 0, 'name': 'swimming sheep', 'box': [200, 235, 100, 100]}]\nFrame 5: [{'id': 0, 'name': 'swimming sheep', 'box': [200, 230, 100, 100]}]\nFrame 6: [{'id': 0, 'name': 'swimming sheep', 'box': [200, 225, 100, 100]}]\nBackground keyword: wild river"
+    ],
+    "Loopy walks from left to right in a park": [
+        "Reasoning: Loopy is walking from left to right, so their position should shift horizontally towards the right across frames. Their height should remain constant or slightly change due to perspective.\nFrame 1: [{'id': 0, 'name': 'Loopy', 'box': [0, 200, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'Loopy', 'box': [100, 200, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'Loopy', 'box': [200, 200, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'Loopy', 'box': [250, 200, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'Loopy', 'box': [300, 200, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'Loopy', 'box': [350, 200, 50, 50]}]\nBackground keyword: park"
+    ],
+    "Loopy runs from left to right in a dense forest": [
+        "Reasoning: Loopy is running from left to right, so its x-coordinate increases while maintaining a similar y-coordinate since it's in a forest with uneven terrain. Assuming consistent movement, the bounding box should shift horizontally.\nFrame 1: [{'id': 0, 'name': 'Loopy', 'box': [0, 200, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'Loopy', 'box': [100, 200, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'Loopy', 'box': [200, 200, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'Loopy', 'box': [300, 200, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'Loopy', 'box': [400, 200, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'Loopy', 'box': [450, 200, 50, 50]}]\nBackground keyword: dense forest"
+    ],
+    "Loopy jumps up and down in a house": [
+        "Reasoning: Loopy is jumping, so her y-coordinate starts low and increases for upward movement, then decreases for downward movement. Assuming she stays within the frame, the box will remain relatively centered.\nFrame 1: [{'id': 0, 'name': 'Loopy', 'box': [256, 100, 100, 100]}]\nFrame 2: [{'id': 0, 'name': 'Loopy', 'box': [256, 200, 100, 100]}]\nFrame 3: [{'id': 0, 'name': 'Loopy', 'box': [256, 300, 100, 100]}]\nFrame 4: [{'id': 0, 'name': 'Loopy', 'box': [256, 200, 100, 100]}]\nFrame 5: [{'id': 0, 'name': 'Loopy', 'box': [256, 100, 100, 100]}]\nFrame 6: [{'id': 0, 'name': 'Loopy', 'box': [256, 200, 100, 100]}]\nBackground keyword: house"
+    ],
+    "Loopy sits on a chair in a room": [
+        "Reasoning: Loopy sitting implies they are stationary, so their position will remain relatively consistent. They are on a chair, so their box should be within the bounds of a typical chair.\nFrame 1: [{'id': 0, 'name': 'Loopy', 'box': [250, 250, 100, 150]}]\nFrame 2: [{'id': 0, 'name': 'Loopy', 'box': [250, 250, 100, 150]}]\nFrame 3: [{'id': 0, 'name': 'Loopy', 'box': [250, 250, 100, 150]}]\nFrame 4: [{'id': 0, 'name': 'Loopy', 'box': [250, 250, 100, 150]}]\nFrame 5: [{'id': 0, 'name': 'Loopy', 'box': [250, 250, 100, 150]}]\nFrame 6: [{'id': 0, 'name': 'Loopy', 'box': [250, 250, 100, 150]}]\nBackground keyword: room"
+    ],
+    "Loopy walks through a street in a city": [
+        "Reasoning: Loopy is walking, so their position should gradually shift from left to right across the frame. Their height should remain consistent throughout.\nFrame 1: [{'id': 0, 'name': 'Loopy', 'box': [10, 200, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'Loopy', 'box': [60, 200, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'Loopy', 'box': [110, 200, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'Loopy', 'box': [160, 200, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'Loopy', 'box': [210, 200, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'Loopy', 'box': [260, 200, 50, 50]}]\nBackground keyword: city street"
+    ],
+    "Loopy swims in a wild river": [
+        "Reasoning: Loopy swimming implies a horizontal motion across the frame with some upward movement due to buoyancy. The river's flow may also affect the position slightly.\nFrame 1: [{'id': 0, 'name': 'Loopy', 'box': [100, 150, 100, 150]}]\nFrame 2: [{'id': 0, 'name': 'Loopy', 'box': [150, 175, 100, 150]}]\nFrame 3: [{'id': 0, 'name': 'Loopy', 'box': [200, 200, 100, 150]}]\nFrame 4: [{'id': 0, 'name': 'Loopy', 'box': [250, 225, 100, 150]}]\nFrame 5: [{'id': 0, 'name': 'Loopy', 'box': [300, 250, 100, 150]}]\nFrame 6: [{'id': 0, 'name': 'Loopy', 'box': [350, 275, 100, 150]}]\nBackground keyword: wild river"
+    ],
+    "A man walks from left to right in a park": [
+        "Reasoning: The man starts from the left and moves towards the right, so his x-coordinate increases. Since he's walking, his y-coordinate remains relatively stable.\nFrame 1: [{'id': 0, 'name': 'man', 'box': [0, 200, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'man', 'box': [50, 200, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'man', 'box': [100, 200, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'man', 'box': [150, 200, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'man', 'box': [200, 200, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'man', 'box': [250, 200, 50, 100]}]\nBackground keyword: park"
+    ],
+    "A man runs from left to right in a dense forest": [
+        "Reasoning: The man is running from left to right, so his x-coordinate increases over time. He should maintain a consistent pace within the forest environment.\nFrame 1: [{'id': 0, 'name': 'man', 'box': [50, 150, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'man', 'box': [100, 150, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'man', 'box': [150, 150, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'man', 'box': [200, 150, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'man', 'box': [250, 150, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'man', 'box': [300, 150, 50, 100]}]\nBackground keyword: dense forest"
+    ],
+    "A man jumps up and down in a house": [
+        "Reasoning: The man is jumping, so he starts near the bottom of the frame and moves upward, then comes back down due to gravity.\nFrame 1: [{'id': 0, 'name': 'man', 'box': [100, 30, 100, 150]}]\nFrame 2: [{'id': 0, 'name': 'man', 'box': [100, 150, 100, 150]}]\nFrame 3: [{'id': 0, 'name': 'man', 'box': [100, 100, 100, 150]}]\nFrame 4: [{'id': 0, 'name': 'man', 'box': [100, 150, 100, 150]}]\nFrame 5: [{'id': 0, 'name': 'man', 'box': [100, 30, 100, 150]}]\nFrame 6: [{'id': 0, 'name': 'man', 'box': [100, 100, 100, 150]}]\nBackground keyword: house"
+    ],
+    "A man sits on a chair in a room": [
+        "Reasoning: The man is sitting, so he will be in the center or slightly off-center with a moderate height above the ground.\nFrame 1: [{'id': 0, 'name': 'man', 'box': [256, 160, 128, 128]}]\nFrame 2: [{'id': 0, 'name': 'man', 'box': [256, 160, 128, 128]}]\nFrame 3: [{'id': 0, 'name': 'man', 'box': [256, 160, 128, 128]}]\nFrame 4: [{'id': 0, 'name': 'man', 'box': [256, 160, 128, 128]}]\nFrame 5: [{'id': 0, 'name': 'man', 'box': [256, 160, 128, 128]}]\nFrame 6: [{'id': 0, 'name': 'man', 'box': [256, 160, 128, 128]}]\nBackground keyword: room"
+    ],
+    "A man walks through a street in a city": [
+        "Reasoning: The man is walking, so he'll move from left to right at a constant pace. His height will remain approximately the same throughout the scene.\nFrame 1: [{'id': 0, 'name': 'man', 'box': [20, 200, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'man', 'box': [70, 200, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'man', 'box': [120, 200, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'man', 'box': [170, 200, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'man', 'box': [220, 200, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'man', 'box': [270, 200, 50, 100]}]\nBackground keyword: city street"
+    ],
+    "A man swims in a wild river": [
+        "Reasoning: The man is swimming, so he will move horizontally through the frame while maintaining a similar vertical position. The river's flow may slightly affect his position.\nFrame 1: [{'id': 0, 'name': 'man', 'box': [100, 200, 100, 100]}]\nFrame 2: [{'id': 0, 'name': 'man', 'box': [150, 200, 100, 100]}]\nFrame 3: [{'id': 0, 'name': 'man', 'box': [200, 200, 100, 100]}]\nFrame 4: [{'id': 0, 'name': 'man', 'box': [250, 200, 100, 100]}]\nFrame 5: [{'id': 0, 'name': 'man', 'box': [300, 200, 100, 100]}]\nFrame 6: [{'id': 0, 'name': 'man', 'box': [350, 200, 100, 100]}]\nBackground keyword: wild river"
+    ],
+    "A woman walks from left to right in a park": [
+        "Reasoning: The woman starts from the left and moves right, so her x-coordinate increases. She maintains a consistent size throughout the walk.\nFrame 1: [{'id': 0, 'name': 'woman', 'box': [0, 200, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'woman', 'box': [50, 200, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'woman', 'box': [100, 200, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'woman', 'box': [150, 200, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'woman', 'box': [200, 200, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'woman', 'box': [250, 200, 50, 100]}]\nBackground keyword: park"
+    ],
+    "A woman runs from left to right in a dense forest": [
+        "Reasoning: The woman is running from left to right, so her x-coordinate increases over time. Her y-coordinate might fluctuate due to uneven terrain or vegetation.\nFrame 1: [{'id': 0, 'name': 'woman', 'box': [0, 200, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'woman', 'box': [100, 250, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'woman', 'box': [200, 300, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'woman', 'box': [300, 350, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'woman', 'box': [400, 400, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'woman', 'box': [450, 450, 50, 100]}]\nBackground keyword: dense forest"
+    ],
+    "A woman jumps up and down in a house": [
+        "Reasoning: The woman is jumping, so her y-coordinate will alternate between decreasing (upward) and increasing (downward) while her x-coordinate remains relatively constant. Assuming the house is a rectangle, the bounding box should stay within the frame.\nFrame 1: [{'id': 0, 'name': 'woman', 'box': [256, 430, 50, 100]}]\nFrame 2: [{'id': 0, 'name': 'woman', 'box': [256, 330, 50, 100]}]\nFrame 3: [{'id': 0, 'name': 'woman', 'box': [256, 430, 50, 100]}]\nFrame 4: [{'id': 0, 'name': 'woman', 'box': [256, 330, 50, 100]}]\nFrame 5: [{'id': 0, 'name': 'woman', 'box': [256, 430, 50, 100]}]\nFrame 6: [{'id': 0, 'name': 'woman', 'box': [256, 330, 50, 100]}]\nBackground keyword: house"
+    ],
+    "A woman sits on a chair in a room": [
+        "Reasoning: The woman is sitting, so her position should be relatively stable with a small bounding box around her.\nFrame 1: [{'id': 0, 'name': 'woman', 'box': [200, 150, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'woman', 'box': [200, 150, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'woman', 'box': [200, 150, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'woman', 'box': [200, 150, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'woman', 'box': [200, 150, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'woman', 'box': [200, 150, 50, 50]}]\nBackground keyword: room"
+    ],
+    "A woman walks through a street in a city": [
+        "Reasoning: The woman is walking, so her x-coordinate should increase gradually while her y-coordinate remains relatively stable. Assuming she's walking straight, the box will be around the center of her path.\nFrame 1: [{'id': 0, 'name': 'woman', 'box': [70, 250, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'woman', 'box': [120, 250, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'woman', 'box': [170, 250, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'woman', 'box': [220, 250, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'woman', 'box': [270, 250, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'woman', 'box': [320, 250, 50, 50]}]\nBackground keyword: city street"
+    ],
+    "A woman swims in a wild river": [
+        "Reasoning: The woman is swimming, so she will move horizontally along the x-axis, while her y-axis position may vary as she moves through the water. Assuming the river flows from left to right, her direction of motion will be consistent.\nFrame 1: [{'id': 0, 'name': 'woman', 'box': [100, 250, 50, 50]}]\nFrame 2: [{'id': 0, 'name': 'woman', 'box': [150, 250, 50, 50]}]\nFrame 3: [{'id': 0, 'name': 'woman', 'box': [200, 250, 50, 50]}]\nFrame 4: [{'id': 0, 'name': 'woman', 'box': [250, 250, 50, 50]}]\nFrame 5: [{'id': 0, 'name': 'woman', 'box': [300, 250, 50, 50]}]\nFrame 6: [{'id': 0, 'name': 'woman', 'box': [350, 250, 50, 50]}]\nBackground keyword: river"
+    ]
+}

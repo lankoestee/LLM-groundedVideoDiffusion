@@ -1,5 +1,5 @@
 python generate.py \
---model gpt-4-1106-preview \
+--model qwen-turbo \
 --run-model lvd-gligen_zeroscope \
 --prompt-type demo \
 --save-suffix lvd_gligen \
