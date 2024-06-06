@@ -117,7 +117,19 @@ prompts_demo = [
     "A woman jumps up and down in a house",
     "A woman sits on a chair in a room",
     "A woman walks through a street in a city",
-    "A woman swims in a wild river"
+    "A woman swims in a wild river",
+    "Tom walks from left to right in a park",
+    "Tom runs from left to right in a dense forest",
+    "Tom jumps up and down in a house",
+    "Tom sits on a chair in a room",
+    "Tom walks through a street in a city",
+    "Tom swims in a wild river",
+    "Doraemon walks from left to right in a park",
+    "Doraemon runs from left to right in a dense forest",
+    "Doraemon jumps up and down in a house",
+    "Doraemon sits on a chair in a room",
+    "Doraemon walks through a street in a city",
+    "Doraemon swims in a wild river",
 ]
 
 prompt_types = ["demo", "lvd"]
