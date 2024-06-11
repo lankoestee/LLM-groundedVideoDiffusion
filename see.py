@@ -1,12 +1,12 @@
 import torch
+import os
 import torchvision
+import matplotlib.pyplot as plt
 import numpy as np
 from scipy import ndimage
-import matplotlib.pyplot as plt
-from utils.layout_make import latent_embed
 from sklearn.cluster import KMeans
 
-def single_vis(feature_map):
+def single_vis(feature_map, filename):
     """
     Visualize a single feature map
     :param feature_map: [B, C, H, W] or [B, T, C, H, W]
@@ -30,11 +30,9 @@ def single_vis(feature_map):
         plt.imshow(img)
         plt.axis('off')
         plt.show()
-        plt.savefig("tmp/latent_vis.png")
+        plt.savefig(f"tmp/{filename}.png")
 
 def remove_background(image, n_clusters=2):
-    if image.shape[0] == 1:
-        image = image.squeeze(0)
     image = image.to('cpu').numpy()
     c, h, w = image.shape
     flattened_image = image.reshape(c, -1).T  # 展平图像
@@ -77,9 +75,8 @@ def remove_background(image, n_clusters=2):
 
     return image, mask
 
-
-# bear = torch.load("tmp/bear.pt", map_location="cpu")
-# bear, bear_mask = remove_background(bear, 10)
-# noise = latent_embed(bear, fps=24)
-# noise = noise.permute(0, 2, 1, 3, 4)
-# single_vis(noise[0])
+for file in os.listdir("tmp"):
+    if file.endswith(".pt"):
+        latent = torch.load(f"tmp/{file}", map_location="cpu")
+        latent, mask = remove_background(latent[0], 10)
+        single_vis(latent, file[:-3])

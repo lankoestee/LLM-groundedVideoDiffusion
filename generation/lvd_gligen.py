@@ -148,7 +148,7 @@ def run(
     torch.save(image_latent, f"tmp/" + phrases[0] + ".pt")
 
     # bear = torch.load("tmp/bear.pt", map_location="cpu")
-    image_latent, _ = remove_background(image_latent, 20)
+    image_latent, _ = remove_background(image_latent)
     image_latent = image_latent.to("cuda")
     noise = latent_embed(image_latent, parsed_layout=bboxes[0], fps=24, generator=generator, gap=1)
     noise = noise.to(torch.float16)
